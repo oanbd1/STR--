@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ستر - حماية البيانات</title>
+<style>
+/* تأثير اختفاء وظهور الصفحة */
+body {
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+body.loaded {
+    opacity: 1;
+}
+</style>
+
+<script>
+// عند تحميل الصفحة، اجعلها تظهر تدريجياً
+window.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('loaded');
+});
+
+// التنقل بسلاسة مع تأثير fade
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+            // نمرر الصفحة بسلاسة
+            targetEl.scrollIntoView({ behavior: 'smooth' });
+            
+            // تأثير إضافي اختياري: يمكن إضافة fade صغير على القسم المستهدف
+            targetEl.style.transition = 'background-color 0.5s ease';
+        }
+    });
+});
+</script>
+<style>
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("https://up6.cc/2025/10/176392886136461.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #0a1a2b;
+    color: #f0f0f0;
+    direction: rtl;
+}
+
+/* الرأس */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: rgba(10, 26, 43, 0.9);
+    border-bottom: 2px solid #1ca7ec;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+header .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1ca7ec;
+}
+header .logo img {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+header nav a {
+    color: #f0f0f0;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+header nav a:hover { color: #1ca7ec; }
+
+/* الأقسام */
+section { padding: 80px 20px; }
+
+#الرئيسية {
+    text-align: center;
+    background-color: rgba(10, 26, 43, 0.8);
+    border-bottom: 2px solid #1ca7ec;
+}
+#الرئيسية h1 { font-size: 3rem; margin-bottom: 20px; color: #1ca7ec; }
+#الرئيسية p { font-size: 1.2rem; margin-bottom: 30px; color: #c0e0ff; }
+.primary-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    background-color: #1ca7ec;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.primary-btn:hover { background-color: #0d8ad3; transform: scale(1.05); }
+
+/* العناوين */
+#الحماية h2,
+#المميزات h2,
+#تواصل h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1ca7ec;
+    margin-bottom: 40px;
+}
+#الحماية p,
+#تواصل p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #c0e0ff;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* عروض الحماية */
+.protection-offers {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 50px;
+}
+.protection-offers .offer {
+    background-color: rgba(10,26,43,0.9);
+    padding: 20px;
+    border-radius: 15px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    border:1px solid #0d2f50;
+    transition:0.3s;
+}
+.protection-offers .offer:hover {
+    transform: translateY(-10px);
+    border-color: #1ca7ec;
+    box-shadow: 0 12px 25px rgba(28, 167, 236,0.4);
+}
+.protection-offers img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+.protection-offers h3 { color:#1ca7ec; margin-bottom:10px; }
+.protection-offers p { color:#c0e0ff; }
+
+/* المميزات */
+#المميزات { background-color: rgba(0, 20, 40, 0.9); }
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.card {
+    background-color: rgba(10, 26, 43, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid #0d2f50;
+}
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #1ca7ec;
+    box-shadow: 0 12px 25px rgba(28, 167, 236,0.4);
+}
+.card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-top: 20px;
+}
+.card h3 { margin: 15px 0 10px 0; color: #1ca7ec; }
+.card p { padding: 0 15px; font-size: 0.9rem; color: #c0e0ff; }
+.secondary-btn {
+    margin: 15px 0 20px 0;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 2px solid #1ca7ec;
+    background: transparent;
+    color: #1ca7ec;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.secondary-btn:hover { background-color: #1ca7ec; color: white; }
+
+/* التذييل */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(10, 26, 43, 0.9);
+    border-top: 2px solid #1ca7ec;
+    color: #c0e0ff;
+}
+
+/* استجابة الهاتف */
+@media (max-width: 900px) {
+    header { flex-direction: column; text-align: center; }
+    nav { margin-top: 10px; }
+    .cards, .protection-offers { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        ستر 
+        <img src="https://up6.cc/2025/10/176392886136461.png" alt="شعار ستر">
+    </div>
+    <nav>
+        <a href="#الرئيسية">الرئيسية</a>
+        <a href="#الحماية">الحماية</a>
+        <a href="#المميزات">المميزات</a>
+        <a href="#تواصل">تواصل معنا</a>
+    </nav>
+</header>
+
+<!-- الرئيسية -->
+<section id="الرئيسية">
+    <h1>حماية بياناتك بكل أمان</h1>
+    <p>ستر يوفر أفضل حلول حماية المعلومات للشركات والمؤسسات.</p>
+    <button class="primary-btn">ابدأ الآن</button>
+</section>
+
+<!-- الحماية -->
+<section id="الحماية">
+    <h2>الحماية</h2>
+    <div class="protection-offers">
+        <div class="offer">
+            <img src="https://up6.cc/2025/10/176392883321451.png" alt="الحماية البرونزية">
+            <h3>الحماية البرونزية</h3>
+            <p>حماية أساسية مع تشفير قياسي لمراقبة بيانات شركتك.</p>
+        </div>
+        <div class="offer">
+            <img src="https://up6.cc/2025/10/176392879292341.png" alt="الحماية الذهبية">
+            <h3>الحماية الذهبية</h3>
+            <p>حماية متقدمة مع تشفير أقوى وتقارير وتحليلات دورية.</p>
+        </div>
+        <div class="offer">
+            <img src="https://up6.cc/2025/10/176392875099571.png" alt="الحماية الماسية">
+            <h3>الحماية الماسية</h3>
+            <p>أعلى مستوى حماية، مراقبة مستمرة، وتشغيل آلي للتهديدات المحتملة.</p>
+        </div>
+    </div>
+</section>
+
+<!-- المميزات -->
+<section id="المميزات">
+    <h2>المميزات</h2>
+    <div class="cards">
+        <div class="card">
+          <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="حماية البيانات" />
+          <h3>حماية كاملة</h3>
+          <p>تشفير قوي ومراقبة مستمرة لضمان أمان بياناتك.</p>
+          <button class="secondary-btn">اعرف أكثر</button>
+        </div>
+        <div class="card">
+          <img src="https://cdn-icons-png.flaticon.com/512/2910/2910767.png" alt="مراقبة الشبكة" />
+          <h3>مراقبة مستمرة</h3>
+          <p>نظام ذكي لرصد أي تهديدات محتملة على الشبكة.</p>
+          <button class="secondary-btn">اعرف أكثر</button>
+        </div>
+        <div class="card">
+          <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="تقارير" />
+          <h3>تقارير وتحليلات</h3>
+          <p>تقارير مفصلة لتقييم مستوى الحماية واتخاذ القرارات.</p>
+          <button class="secondary-btn">اعرف أكثر</button>
+        </div>
+    </div>
+</section>
+
+<!-- تواصل معنا -->
+<section id="تواصل">
+    <h2>تواصل معنا</h2>
+    <p>للاستفسارات أو الدعم، تواصل معنا عبر البريد الإلكتروني أو الهاتف، وسنكون سعداء بمساعدتك.</p>
+</section>
+
+<footer>
+    جميع الحقوق محفوظة © 2025 - ستر لحماية البيانات
+</footer>
+
+</body>
+</html>
